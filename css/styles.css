@@ -69,7 +69,6 @@ body {
 
 .gradient-text {
   /* Fallback: Set a background color. */
-  font-weight: bold;
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;

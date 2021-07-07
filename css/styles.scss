@@ -13,7 +13,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: rgb(60, 2, 68); 
+  background: rgb(60, 2, 68);
   background: linear-gradient(
     219deg,
     rgba(60, 2, 68, 1) 2%,
@@ -54,8 +54,6 @@ body {
 
 .gradient-text {
   /* Fallback: Set a background color. */
-
-  font-weight: bold;
 
   /* Set the background size and repeat properties. */
   background-size: 100%;
