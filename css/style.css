@@ -39,12 +39,49 @@ html {
 }
 
 body {
-  background-color: #0c0922;
+  background: #3c0244;
+  background: linear-gradient(219deg, #3c0244 2%, rgba(1, 23, 79, 0.975228) 99%);
   font-family: "Fira Sans";
 }
 
 #navbar {
-  background-color: #0c0922;
+  background-color: transparent;
+}
+
+.bg-gradient-yellowish {
+  background-color: #ca4246;
+  /* Create the gradient. */
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 253, 73, 0.975228)), color-stop(96%, #ff6e61));
+  background: linear-gradient(90deg, rgba(255, 253, 73, 0.975228) 0%, #ff6e61 96%);
+}
+
+.bg-gradient-greenish {
+  background: #9549ff;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(149, 73, 255, 0.975228)), color-stop(96%, #eb61ff));
+  background: linear-gradient(90deg, rgba(149, 73, 255, 0.975228) 0%, #eb61ff 96%);
+}
+
+.bg-gradient-bluish {
+  background: #497aff;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(73, 122, 255, 0.975228)), color-stop(96%, #61ffad));
+  background: linear-gradient(90deg, rgba(73, 122, 255, 0.975228) 0%, #61ffad 96%);
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  font-weight: bold;
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  -webkit-animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+          animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
 
 .section-title {
@@ -98,12 +135,15 @@ body {
 .nav-container nav .right-menu a {
   padding: 1rem 1.5rem;
   text-decoration: none;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
   -webkit-transition: 0.2s all ease-in-out;
   transition: 0.2s all ease-in-out;
 }
 
 .nav-container nav .right-menu a:hover {
-  color: #e6193b;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-container nav .logo {
@@ -114,7 +154,7 @@ body {
 }
 
 .nav-container nav .logo a {
-  padding: .5rem;
+  padding: 0.5rem;
   border: 3px white solid;
   text-decoration: none;
   -webkit-transition: 0.3s all ease-in-out;
@@ -134,8 +174,8 @@ body {
   }
   .nav-container nav .right-menu {
     display: none;
-    -webkit-transition: .3s all step-end;
-    transition: .3s all step-end;
+    -webkit-transition: 0.3s all step-end;
+    transition: 0.3s all step-end;
   }
   .nav-container nav #nav-toggle:checked ~ .right-menu {
     height: 100%;
@@ -161,7 +201,7 @@ body {
     padding: 20px 0px;
   }
   .nav-container nav #nav-toggle:checked ~ .right-menu a:hover {
-    background: #020c44;
+    background: rgba(212, 215, 228, 0.1);
     color: white;
   }
 }
@@ -203,8 +243,9 @@ body {
 
 #site-banner .site-banner .me h1 {
   padding: 20px 30px;
-  font: normal bold 1.5rem "Fira Sans";
+  font: normal bold 1.8rem "Fira Sans";
   letter-spacing: 5px;
+  text-align: center;
 }
 
 #site-banner .site-banner .me p {
@@ -296,7 +337,7 @@ body {
   text-align: left;
   text-transform: capitalize;
   font: normal 300 1rem/1.5rem "Fira sans";
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   width: 75%;
 }
 
@@ -316,10 +357,10 @@ body {
 
 .about-section .about-area .about-content .about-info .para .skills skill {
   font-weight: bold;
-  margin: .5rem .3rem;
+  margin: 0.5rem 0.3rem;
   padding: 0 2rem;
   border-radius: 2rem;
-  border: .1rem white solid;
+  border: 0.1rem white solid;
   text-transform: lowercase;
 }
 
@@ -336,6 +377,9 @@ body {
   }
   .about-section .about-area .about-content .about-image img {
     width: 20rem;
+  }
+  .about-section .about-area .about-content .me h1 {
+    font-size: 1.5rem;
   }
   .about-section .about-area .about-content .about-info h1 {
     text-align: center;
@@ -383,8 +427,8 @@ body {
   -webkit-box-shadow: -0.5rem 0.3rem 1rem black;
           box-shadow: -0.5rem 0.3rem 1rem black;
   text-align: left;
-  -webkit-transition: .3s all ease-in-out;
-  transition: .3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 .skills-area .skill-box .skill-list .skill-list-card h1 {
@@ -421,8 +465,8 @@ body {
   background-color: #161020d3;
   -webkit-box-shadow: -0.5rem 0.3rem 1rem black;
           box-shadow: -0.5rem 0.3rem 1rem black;
-  -webkit-transition: .3s all ease-in-out;
-  transition: .3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 .experience .exp-box .exp-card a {
@@ -442,9 +486,10 @@ body {
   text-align: center;
 }
 
-.contact h3, .contact h4 {
+.contact h3,
+.contact h4 {
   font-weight: 300;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .contact i {
@@ -461,14 +506,7 @@ body {
 }
 
 .contact .instagram-icon {
-  background: radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-  background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-  -moz-background: radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-  -moz-background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-  -webkit-background: radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-  -webkit-background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #dd1081;
 }
 
 .contact .twitter-icon {

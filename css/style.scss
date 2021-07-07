@@ -1,49 +1,95 @@
 @import "./fonts";
 
-
 $accent-color: rgb(230, 25, 59);
-$background-color:rgb(12, 9, 34);
+$background-color: rgb(12, 9, 34);
 * {
   margin: 0;
   padding: 0;
-  color:white; 
-  
+  color: white;
+
   // border: 2px white solid;
 }
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 body {
-  background-color: $background-color;
+  background: rgb(60, 2, 68);
+  background: linear-gradient(
+    219deg,
+    rgba(60, 2, 68, 1) 2%,
+    rgba(1, 23, 79, 0.9752275910364145) 99%
+  );
   font-family: "Fira Sans";
 }
-#navbar{
-  background-color: $background-color;
+#navbar {
+  background-color: transparent;
 }
-.section-title{
-  
+
+.bg-gradient-yellowish {
+  background-color: #ca4246;
+  /* Create the gradient. */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 253, 73, 0.9752275910364145) 0%,
+    rgba(255, 110, 97, 1) 96%
+  );
+}
+
+.bg-gradient-greenish {
+  background: rgb(149, 73, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(149, 73, 255, 0.9752275910364145) 0%,
+    rgba(235, 97, 255, 1) 96%
+  );
+}
+.bg-gradient-bluish {
+  background: rgb(73, 122, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(73, 122, 255, 0.9752275910364145) 0%,
+    rgba(97, 255, 173, 1) 96%
+  );
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+
+  font-weight: bold;
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+
+.section-title {
   font: normal 300 2rem "Fira Sans";
   text-transform: uppercase;
   letter-spacing: 1rem;
   // text-align: center;
   padding: 1rem;
-
 }
 .nav-container {
   width: 100%;
   margin-top: 30px;
   font-size: 1rem;
 
-  // position:fixed;
-  //    border: 3px white solid;
   nav {
     max-width: 1500px;
-    // border: 3px white solid;
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    // justify-items: center;
-    //   align-items: center;
+
     #nav-toggle,
     .burger-menu {
       display: none;
@@ -59,7 +105,6 @@ body {
       }
     }
     .right-menu {
-      //   border: 3px white solid;
       text-transform: uppercase;
       grid-column: 2;
       grid-row: 1;
@@ -67,25 +112,25 @@ body {
       a {
         padding: 1rem 1.5rem;
         text-decoration: none;
-     
+        font-size: 1.3rem;
+        letter-spacing: 2px;
         transition: 0.2s all ease-in-out;
 
         &:hover {
-          color: $accent-color;
+          border-radius: 1rem;
+          background-color: rgba(255, 255, 255, 0.1);
         }
       }
     }
     .logo {
-      //   border: 3px white solid;
       grid-column: 1;
       font-weight: bold;
       padding: 0px 2rem;
 
       a {
-        padding: .5rem;
+        padding: 0.5rem;
         border: 3px white solid;
         text-decoration: none;
-       
 
         transition: 0.3s all ease-in-out;
         &:hover {
@@ -94,28 +139,27 @@ body {
         }
       }
     }
-    
+
     @media only screen and (max-width: 1025px) {
       .burger-menu {
         padding: 0px 1rem;
         display: inline-block;
         text-align: right;
-        
+
         //   align-self:center ;
       }
-      
 
       .right-menu {
         display: none;
-        transition: .3s all step-end;
+        transition: 0.3s all step-end;
       }
       #nav-toggle:checked ~ .right-menu {
         height: 100%;
         display: flex;
         flex-direction: column;
-        background:$background-color ;
+        background: $background-color;
         grid-row: 2;
-        // position: fixed;
+
         grid-column: 1/3;
         width: 100%;
         margin-top: 5vh;
@@ -123,126 +167,113 @@ body {
         a {
           display: block;
           padding: 20px 0px;
-          // border:2px white solid;
-          
-          &:hover{
-            background: rgb(2, 12, 68);
-            color:white;
+
+          &:hover {
+            background: rgba(212, 215, 228, 0.1);
+            color: white;
           }
         }
       }
-      
     }
   }
 }
-#site-banner{
+#site-banner {
   width: 100%;
   .site-banner {
-  // border:2px white solid;
- 
-  
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  .me {
-    // border: 2px solid lightcoral;
-    margin-top: 10vh;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    img{
-      width:50%;
-    }
-    h1 {
-      padding: 20px 30px;
-      font:normal bold 1.5rem "Fira Sans";
-      letter-spacing: 5px;
-      
-      
-    }
-    p{
-      font:normal 300 25px "Fira Sans";
-      text-align: center;
-    }
-    .icons{
-      width:50%;
-      margin-top:2vh;
+    align-content: center;
+    justify-content: center;
+    .me {
+      margin-top: 10vh;
       display: flex;
-      justify-content: space-around;
-      a{
-        padding: 5px;
-        i:hover {
-          color:$accent-color;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      img {
+        width: 50%;
+      }
+      h1 {
+        padding: 20px 30px;
+        font: normal bold 1.8rem "Fira Sans";
+        letter-spacing: 5px;
+        text-align: center;
+      }
+      p {
+        font: normal 300 25px "Fira Sans";
+        text-align: center;
+      }
+      .icons {
+        width: 50%;
+        margin-top: 2vh;
+        display: flex;
+        justify-content: space-around;
+        a {
+          padding: 5px;
+          i:hover {
+            color: $accent-color;
+          }
         }
       }
     }
   }
-}
-
 }
 
 .about-section {
   width: 100%;
-  // border: 2px greenyellow solid;
+
   display: flex;
   justify-content: center;
-  .about-area{
+  .about-area {
     margin-top: 6rem;
     width: 100%;
 
-    div{
-      // border: 2px greenyellow solid;
+    div {
       width: auto;
-      // height:300px;
     }
-    .about-content{
+    .about-content {
       margin-top: 5rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      
-      .about-image{
+
+      .about-image {
         flex: 1;
         text-align: right;
         padding: 0 2rem;
         display: flex;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
         justify-content: end;
         align-items: center;
-        img{
-          width:30rem;
+        img {
+          width: 30rem;
         }
       }
-      .about-info{
-        flex:1;
+      .about-info {
+        flex: 1;
         padding: 0 2rem;
-        // border: 2px greenyellow solid;
-      
-        .para{
-          
+
+        .para {
           margin-top: 4rem;
-          
+
           text-align: left;
           text-transform: capitalize;
-          font:normal 300 1rem/1.5rem "Fira sans";
-          letter-spacing: .1rem;
+          font: normal 300 1rem/1.5rem "Fira sans";
+          letter-spacing: 0.1rem;
           width: 75%;
-          .skills{
-            
+          .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            skill{
+            skill {
               font-weight: bold;
-              margin:.5rem .3rem;
+              margin: 0.5rem 0.3rem;
               padding: 0 2rem;
               border-radius: 2rem;
-              border: .1rem white solid;
+              border: 0.1rem white solid;
               text-transform: lowercase;
-              &:hover{
-                color:$accent-color;
+              &:hover {
+                color: $accent-color;
                 border-color: $accent-color;
               }
             }
@@ -250,59 +281,61 @@ body {
         }
       }
       @media only screen and (max-width: 1025px) {
-        .about-image{
+        .about-image {
           justify-content: center;
-          img{
-            width:20rem;
+          img {
+            width: 20rem;
           }
         }
-        .about-info{
-          h1{
+        .me {
+          h1 {
+            font-size: 1.5rem;
+          }
+        }
+        .about-info {
+          h1 {
             text-align: center;
           }
-          .para{
+          .para {
             margin-top: 2rem;
             width: 100%;
-            text-align:center;
+            text-align: center;
           }
         }
       }
     }
-   
   }
 }
 
-.skills-area{
-  width:100%;
-  // border:2px white solid;
+.skills-area {
+  width: 100%;
+
   display: flex;
   justify-content: center;
-  .skill-box{
-    // height: 50vh;
+  .skill-box {
     margin-top: 10vh;
     text-align: center;
-    
-    .skill-list{
+
+    .skill-list {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 2vh;
-      .skill-list-card{
-        width:20rem;
-        margin:1rem 1rem;
+      .skill-list-card {
+        width: 20rem;
+        margin: 1rem 1rem;
         padding: 1rem;
         background-color: #161020d3;
         border-radius: 1rem;
-        box-shadow:-.5rem .3rem 1rem rgb(0, 0, 0);
+        box-shadow: -0.5rem 0.3rem 1rem rgb(0, 0, 0);
         text-align: left;
-        transition: .3s all ease-in-out;
-       
-        h1{
-          margin:1rem 0;
+        transition: 0.3s all ease-in-out;
+
+        h1 {
+          margin: 1rem 0;
         }
-        img{
-         height: 1.5rem;
-        //  width: 1.5rem;
+        img {
+          height: 1.5rem;
         }
       }
     }
@@ -314,67 +347,59 @@ body {
   text-align: center;
   margin-top: 5vh;
 
-  .exp-box{
-    width:100%;
+  .exp-box {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     .exp-card {
-      flex:1;
+      flex: 1;
       text-align: left;
-      width:20rem;
-      margin:1rem 1rem;
+      width: 20rem;
+      margin: 1rem 1rem;
       padding: 1rem;
       background-color: #161020d3;
-      box-shadow:-.5rem .3rem 1rem rgb(0, 0, 0);
-      
-      transition: .3s all ease-in-out;
-      a{
+      box-shadow: -0.5rem 0.3rem 1rem rgb(0, 0, 0);
+
+      transition: 0.3s all ease-in-out;
+      a {
         color: rgb(93, 93, 207);
         text-decoration: none;
         display: block;
         padding: 1rem 0;
       }
-    h2{
-      text-align: center;
-      padding: 1rem;
-    }
+      h2 {
+        text-align: center;
+        padding: 1rem;
+      }
     }
   }
-
 }
 
 .contact {
   margin-top: 4rem;
   text-align: center;
-  h3,h4{
-    
+  h3,
+  h4 {
     font-weight: 300;
-    padding: .5rem;
+    padding: 0.5rem;
   }
-  i{
+  i {
     padding: 2rem;
-    color:rgb(148, 148, 253);
+    color: rgb(148, 148, 253);
   }
-  .telegram-icon{
-    color:rgb(62, 183, 231);
+  .telegram-icon {
+    color: rgb(62, 183, 231);
   }
-  .email-icon{
+  .email-icon {
     color: rgb(219, 64, 7);
   }
-  .instagram-icon{
-    background: radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-    background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-    -moz-background: radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-    -moz-background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-    -webkit-background: radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-    -webkit-background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .instagram-icon {
+    color: rgb(221, 16, 129);
   }
-  .twitter-icon{
-    color:rgb(7, 182, 212);
+  .twitter-icon {
+    color: rgb(7, 182, 212);
   }
-  .contact-icons{
+  .contact-icons {
     // border:2px white solid;
     display: flex;
     justify-content: center;
@@ -391,10 +416,10 @@ body {
   margin-top: 4rem;
   text-align: center;
   margin-bottom: 1rem;
-  i{
+  i {
     color: rgb(235, 2, 41);
   }
-  h3{
+  h3 {
     font-weight: 300;
   }
 }
